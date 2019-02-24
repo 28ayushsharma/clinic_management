@@ -1,0 +1,1067 @@
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US" class="no-js" ng-app="App">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="robots" content="index, follow">
+        <title></title>
+
+        <!-- Meta Description -->
+        <meta name="description" content="jfghdfjgh">
+
+        <!-- For Mobile Meta -->
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+       
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+        <link href="css/admin.css" rel="stylesheet">
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    </head>
+    
+    <body data-is-fixed="false">
+
+        <div class="site-wrapper">
+
+            <div class="dashboard-content">
+                <!-- User Header -->
+                <!-- Dashboard Header -->
+                <nav class="col navbar navbar-expand-lg bg-white shadow header">
+                    <div class="collapse navbar-collapse [ d-flex justify-content-between ]" id="navbarNavDropdown">
+                        <div class="col-sm-3 [ pl-0 ]">
+                            <img class="company-logo" src="images/company_placeholder.png" alt="">
+                        </div>
+                        
+                        <ul class="user-dropdown navbar-nav col-sm-4 col-lg-3 col-xl-4 [ pr-0 align-items-center  justify-content-end ]">
+                            <li class="nav-item">
+                                <span>
+                                    <strong class="text-primary font-weight-semibold font-normal [ d-block text-capitalize text-right ]">John Doe</strong>
+                                        <small class="d-block text-muted text-capitalize">ADMIN &middot; VETERINARIAN</small>
+                                </span>
+                            </li>
+                            <li class="nav-item dropdown [ ml-2 ]" >
+                                <div class="nav-link dropdown-toggle [ pr-0 ] no-arrow" id="single-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="row no-gutters [ align-items-center ]">
+                                        <div class="user-img col-auto">
+                                            <img class="rounded-circle" src="images/ic_placeholder.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-menu user-option" aria-labelledby="single-button">
+                                    <a class="dropdown-item logout-user" value="Logout">
+                                        <i class="dropdown-item--icon"></i>
+                                        <span class="pl-3 align-middle text-red">
+                                            Logout                            
+                                        </span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav><!-- Dashboard Header Ends -->
+
+                <div>
+                    <!-- Module Heading Bar -->
+                    <div class="page-heading shadow [ d-flex flex-sm-wrap align-items-center  justify-content-start fix-width-heading ]">
+                    	<h5 class="primary-text-dark col-sm-3 font-large [ mb-0 text-capitalize pl-0 ]  ">
+                            Edit Profile 
+                        </h5>
+                    </div>    
+
+                    <div>
+                        <!-- Admin setting sidebar menu -->
+                        <aside class="acuro-sidebar acuro-sidebar--large">
+                            <div class="box">
+                                <div class="d-flex justify-content-center mb-5">
+                                    <div class="user-profile-dp">
+                                        <img src="images/ic_placeholder.png" id="profile_img" alt="">
+                                        <span role="button" class="user-profile-dp__edit" >
+                                            <img src="images/ic_edit.png" alt="">
+                                            <input type="file" name="pro-pic" id="">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <div class="input-section">
+                                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First name" required>
+                                           <!--  <div class="form-error">
+                                                <span>First name is required.</span>
+                                            </div>  --> 
+                                            <label>First Name*</label>
+                                        </div>                      
+                                    </div>       
+                                </div>   
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <div class="input-section">
+                                            <input type="text" class="form-control" id="last_name" placeholder="Last name" name="last_name"  required>
+                                            <!-- <div class="form-error" >
+                                                <span ng-message="required">Last name is required.</span>
+                                            </div> -->   
+                                            <label>Last Name*</label>
+                                        </div>                      
+                                    </div>       
+                                </div>   
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <div class="input-section">
+                                            <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" required>
+                                            <!-- <div class="form-error" >
+                                                <span ng-message="required">Email is required.</span>
+                                            </div> -->
+                                            <label for="email">Email*</label>                                
+                                        </div>                      
+                                    </div>       
+                                </div>   
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <div class="input-section">
+                                            <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter your phone" name="phone" required>
+                                            <!-- <div class="form-error" >
+                                                <span ng-message="required">Phone is required.</span>
+                                            </div> -->
+                                            <label for="phone">Phone*</label>            
+                                        </div>                      
+                                    </div>         
+                                </div>   
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <div class="input-section">
+                                            <input type="text" class="form-control" id="licence_no" placeholder="Enter license number" name="licence_no" required>
+                                            <label for="licence_no">License Number</label>
+                                           <!--  <div class="form-error" >
+                                                <span>Licence number is already exist.</span>
+                                            </div> -->
+                                        </div>                      
+                                    </div>         
+                                </div>
+                            </div>
+                        </aside>
+                        <!-- Admin setting sidebar menu Ends-->
+                        <!-- Main area -->
+                        <div class="main-content">
+                            <div class="box-wrapper">
+
+                                <div class="box">
+                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                        <h4 class="box__heading [ mb-0 ]">Clinics and Timings</h4>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addClinicModal">Add Clinic</button>
+                                    </div>
+
+                                    <div id="accordion-parent">
+
+                                        <div id="accordion1" role="tablist" data-accordion-theme="white" data-toggle-icon="arrow" data-accordion-style="border" class="card p-0 border mb-2">
+                                            <div class="" role="tab" id="heading1">
+                                              <h5 class="mb-0">
+                                                <a data-toggle="collapse" href="#" role="button"  aria-controls="collapse1" data-toggle="collapse" data-target="#collapse1">
+                                                  <div class="accordion__heading height-auto">
+                                                    <div class="py-2">
+                                                        <h6 class="primary-text mb-2"> Clinic 1</h6>
+                                                        <span class="font-normal font-weight-normal text-muted d-inline-block position-relative pl-4 mr-4">
+                                                            <i class="ic-phone"></i>  
+                                                            78984586589
+                                                        </span>
+                                                        <span class="font-normal font-weight-normal text-muted d-inline-block position-relative pl-4">
+                                                            <i class="ic-email"></i>  
+                                                            example@aa.com
+                                                        </span>
+                                                    </div>
+                                                   <i class="toggle-icon">
+                                                   </i>
+                                                </div>
+                                                </a>
+                                              </h5>
+                                            </div><!-- end accordion heading -->
+
+                                            <div id="collapse1" class="collapse divider-top" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion-parent">
+                                              <div class="card-body p-0">
+                                               <div>
+                                                    <div class="box [ mb-0 pt-4 pb-0 ] position-relative z-index-0" >
+                                                        <div class="row [ mb-4 ]">
+                                                            <div class="col-auto [ d-flex align-items-center ]">
+                                                                <div class="btn-group checkbox-group" data-toggle="buttons">
+                                                                    <label class="btn" >
+                                                                        <input type="checkbox" autocomplete="off"> Mon
+                                                                    </label>
+                                                                    <label class="btn">
+                                                                        <input type="checkbox" autocomplete="off"> Tue
+                                                                    </label>
+                                                                    <label class="btn" >
+                                                                        <input type="checkbox"  autocomplete="off"> Wed
+                                                                    </label>
+                                                                    <label class="btn" >
+                                                                        <input type="checkbox" autocomplete="off"> Thu
+                                                                    </label>
+                                                                    <label class="btn" >
+                                                                        <input type="checkbox"  autocomplete="off"> Fri
+                                                                    </label>
+                                                                    <label class="btn" >
+                                                                        <input type="checkbox" autocomplete="off"> Sat
+                                                                    </label>
+                                                                    <label class="btn">
+                                                                        <input type="checkbox" autocomplete="off"> Sun
+                                                                    </label>
+                                                                    <div class="form-error" >
+                                                                        <span></span>
+                                                                    </div> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto [ pl-lg-0 pr-lg-0 pl-xl-3 pr-xl-3 ]">
+                                                                <div class="time-group">
+                                                                    <div class="time-group__item">
+                                                                        <input type="text" class="form-control time-group__input" placeholder="Start" />
+                                                                    </div>
+                                                                    <span class="mx-3">
+                                                                        To
+                                                                    </span>
+                                                                    <div class="time-group__item">
+                                                                        <input type="text" class="form-control time-group__input" placeholder="End"/>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-error form-error--full">
+                                                                    <span></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto [ pr-0 d-flex align-items-center ]">
+                                                                <button type="btn" class="btn btn-add"></button>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="appointment-list divider-top">
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Monday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->           
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Tuesday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>                                
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Wednesday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>       
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Thursday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Friday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Saturday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Sunday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>    
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                        </div>
+                                                    </div>  
+                                                </div>
+                                              </div>
+                                            </div><!-- end accordion body-->
+                                        </div><!-- end accordion -->
+
+                                        <div id="accordion2" role="tablist" data-accordion-theme="white" data-toggle-icon="arrow" data-accordion-style="border" class="card p-0 border mb-2">
+                                            <div class="" role="tab" id="heading2">
+                                              <h5 class="mb-0">
+                                                <a data-toggle="collapse" href="#collapse2" role="button"  aria-controls="collapse2" data-toggle="collapse" data-target="#collapse2">
+                                                  <div class="accordion__heading height-auto">
+                                                    <div class="py-2">
+                                                        <h6 class="primary-text mb-2"> Clinic 1</h6>
+                                                        <span class="font-normal font-weight-normal text-muted d-inline-block position-relative pl-4 mr-4">
+                                                            <i class="ic-phone"></i>  
+                                                            78984586589
+                                                        </span>
+                                                        <span class="font-normal font-weight-normal text-muted d-inline-block position-relative pl-4">
+                                                            <i class="ic-email"></i>  
+                                                            example@aa.com
+                                                        </span>
+                                                    </div>
+                                                   <i class="toggle-icon">
+                                                   </i>
+                                                </div>
+                                                </a>
+                                              </h5>
+                                            </div><!-- end accordion heading-->
+
+                                            <div id="collapse2" class="collapse divider-top" role="tabpanel" aria-labelledby="heading2" data-parent="#accordion-parent">
+                                              <div class="card-body p-0">
+                                               <div>
+                                                    <div class="box [ mb-0 pt-4 pb-0 ] position-relative z-index-0" >
+                                                        <div class="row [ mb-4 ]">
+                                                            <div class="col-auto [ d-flex align-items-center ]">
+                                                                <div class="btn-group checkbox-group" data-toggle="buttons">
+                                                                    <label class="btn" >
+                                                                        <input type="checkbox" autocomplete="off"> Mon
+                                                                    </label>
+                                                                    <label class="btn">
+                                                                        <input type="checkbox" autocomplete="off"> Tue
+                                                                    </label>
+                                                                    <label class="btn" >
+                                                                        <input type="checkbox"  autocomplete="off"> Wed
+                                                                    </label>
+                                                                    <label class="btn" >
+                                                                        <input type="checkbox" autocomplete="off"> Thu
+                                                                    </label>
+                                                                    <label class="btn" >
+                                                                        <input type="checkbox"  autocomplete="off"> Fri
+                                                                    </label>
+                                                                    <label class="btn" >
+                                                                        <input type="checkbox" autocomplete="off"> Sat
+                                                                    </label>
+                                                                    <label class="btn">
+                                                                        <input type="checkbox" autocomplete="off"> Sun
+                                                                    </label>
+                                                                    <div class="form-error" >
+                                                                        <span></span>
+                                                                    </div> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto [ pl-lg-0 pr-lg-0 pl-xl-3 pr-xl-3 ]">
+                                                                <div class="time-group">
+                                                                    <div class="time-group__item">
+                                                                        <input type="text" class="form-control time-group__input" placeholder="Start" />
+                                                                    </div>
+                                                                    <span class="mx-3">
+                                                                        To
+                                                                    </span>
+                                                                    <div class="time-group__item">
+                                                                        <input type="text" class="form-control time-group__input" placeholder="End"/>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-error form-error--full">
+                                                                    <span></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto [ pr-0 d-flex align-items-center ]">
+                                                                <button type="btn" class="btn btn-add"></button>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="appointment-list divider-top">
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Monday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->           
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Tuesday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>                                
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Wednesday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>       
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Thursday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Friday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Saturday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Sunday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>    
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                        </div>
+                                                    </div>  
+                                                </div>
+                                              </div>
+                                            </div><!-- end accordion body -->
+                                        </div><!-- end accordion -->
+
+                                        <div id="accordion3" role="tablist" data-accordion-theme="white" data-toggle-icon="arrow" data-accordion-style="border" class="card p-0 border  mb-2">
+                                            <div class="" role="tab" id="heading3">
+                                                <h5 class="mb-0">
+                                                <a data-toggle="collapse" href="#collapse3" role="button"  aria-controls="collapse3" data-toggle="collapse" data-target="#collapse3">
+                                                  <div class="accordion__heading height-auto">
+                                                    <div class="py-2">
+                                                        <h6 class="primary-text mb-2"> Clinic 1</h6>
+                                                        <span class="font-normal font-weight-normal text-muted d-inline-block position-relative pl-4 mr-4">
+                                                            <i class="ic-phone"></i>  
+                                                            78984586589
+                                                        </span>
+                                                        <span class="font-normal font-weight-normal text-muted d-inline-block position-relative pl-4">
+                                                            <i class="ic-email"></i>  
+                                                            example@aa.com
+                                                        </span>
+                                                    </div>
+                                                   <i class="toggle-icon">
+                                                   </i>
+                                                </div>
+                                                </a>
+                                                </h5>
+                                            </div><!-- end accordion heading-->
+
+                                            <div id="collapse3" class="collapse divider-top" role="tabpanel" aria-labelledby="heading3" data-parent="#accordion-parent">
+                                              <div class="card-body p-0">
+                                               <div>
+                                                    <div class="box [ mb-0 pt-4 pb-0 ] position-relative z-index-0" >
+                                                        <div class="row [ mb-4 ]">
+                                                            <div class="col-auto [ d-flex align-items-center ]">
+                                                                <div class="btn-group checkbox-group" data-toggle="buttons">
+                                                                    <label class="btn" >
+                                                                        <input type="checkbox" autocomplete="off"> Mon
+                                                                    </label>
+                                                                    <label class="btn">
+                                                                        <input type="checkbox" autocomplete="off"> Tue
+                                                                    </label>
+                                                                    <label class="btn" >
+                                                                        <input type="checkbox"  autocomplete="off"> Wed
+                                                                    </label>
+                                                                    <label class="btn" >
+                                                                        <input type="checkbox" autocomplete="off"> Thu
+                                                                    </label>
+                                                                    <label class="btn" >
+                                                                        <input type="checkbox"  autocomplete="off"> Fri
+                                                                    </label>
+                                                                    <label class="btn" >
+                                                                        <input type="checkbox" autocomplete="off"> Sat
+                                                                    </label>
+                                                                    <label class="btn">
+                                                                        <input type="checkbox" autocomplete="off"> Sun
+                                                                    </label>
+                                                                    <div class="form-error" >
+                                                                        <span></span>
+                                                                    </div> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto [ pl-lg-0 pr-lg-0 pl-xl-3 pr-xl-3 ]">
+                                                                <div class="time-group">
+                                                                    <div class="time-group__item">
+                                                                        <input type="text" class="form-control time-group__input" placeholder="Start" />
+                                                                    </div>
+                                                                    <span class="mx-3">
+                                                                        To
+                                                                    </span>
+                                                                    <div class="time-group__item">
+                                                                        <input type="text" class="form-control time-group__input" placeholder="End"/>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-error form-error--full">
+                                                                    <span></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto [ pr-0 d-flex align-items-center ]">
+                                                                <button type="btn" class="btn btn-add"></button>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="appointment-list divider-top">
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Monday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->           
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Tuesday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>                                
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Wednesday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>       
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Thursday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Friday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Saturday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                            <div class="appointment-list__item">
+                                                                <div class="appointment-list__day">
+                                                                    Sunday
+                                                                </div>
+                                                                <div class="appointment-list__time">
+                                                                    <div class="badge badge-pill bg-light d-flex align-items-center secondary-text-dark ng-scope" >
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            8:00 AM
+                                                                        </span>
+                                                                        <span class="font-small px-2 text-muted">
+                                                                            To
+                                                                        </span>
+                                                                        <span class="font-small font-weight-bold ng-binding">
+                                                                            10:00 AM
+                                                                        </span>
+                                                                        <a class="ic-close ml-2">
+                                                                        </a>
+                                                                    </div>    
+                                                                </div>
+                                                            </div> <!-- /.appointment-list__item   -->
+                                                        </div>
+                                                    </div>  
+                                                </div>
+                                              </div>
+                                            </div><!-- end accordion body -->
+                                        </div><!-- end accordion -->
+
+                                    </div>
+                                </div>            
+
+                                <div class="box">
+                                    <div class="row">
+                                        <h5 class="box__heading col-xl-12">About User</h5>
+                                        <div class="col-sm-12">
+                                            <div class="input-section">
+                                                <textarea class="form-control" id="about" placeholder="Enter text here" name="about"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="box p-0">
+                                    <div class="box mb-0 box-bottom--shadow" >
+                                        <div class="row">
+                                            <h5 class="box__heading col-xl-12">User Experience</h5>
+                                            <div class="form-group col-sm-4">
+                                                <div class="input-section">
+                                                    <select class="custom-select w-100" id="role" name="role" >
+                                                        <option selected>Select</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                    <label for="role">Role</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group w-100p col-auto divider-date">
+                                                <div class="input-section">
+                                                    <input type="text" id="role_from_year" name="from_year" placeholder="yyyy" datepicker-mode="year" datetime-picker="yyyy" class="form-control roleFromYear icon-field ic-calendar"/>
+                                                    <label for="role_from_year">From</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group w-100p col-auto">
+                                                <div class="input-section">
+                                                    <input type="text" id="role_to_year" name="to_year" placeholder="yyyy" class="form-control roleToYear icon-field ic-calendar" />
+                                                    <label for="role_to_year">To</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col">
+                                                <div class="input-section">
+                                                    <input type="text" id="clinic-hospital-companyname" name="company" placeholder="Type to add" class="form-control">
+                                                    <label for="clinic-hospital-companyname">Clinic/Hospital/Company name</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-auto">
+                                                <button class="btn btn-add"></button>
+                                            </div>
+                                        </div>                           
+                                    </div>
+
+                                    <div class="table-container radius-none bg-transparent" >
+                                        <div class="box [ py-0 mb-0 ]">
+                                            <table class="table data-table box-table [ mb-0 ]">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            <a href="#" class="sorting">Role
+                                                            </a>
+                                                        </th>
+                                                        <th>
+                                                            <a href="#" class="sorting">
+                                                                Duration
+                                                            </a>
+                                                        </th>
+                                                        <th>
+                                                            <a href="#" class="sorting">Clinic/Hospital/Company name  
+                                                            </a>
+                                                        </th>
+                                                        <th>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            Doctor
+                                                        </td>
+                                                        <td>
+                                                            2000-2002
+                                                        </td>
+                                                        <td>
+                                                            Abc Hospital
+                                                        </td>
+                                                        <td class="text-center p-0">
+                                                            <a href="" class="ic-close btn-close  [ d-inline-block align-middle ml-1 ]">
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Doctor
+                                                        </td>
+                                                        <td>
+                                                            2000-2002
+                                                        </td>
+                                                        <td>
+                                                            Abc Hospital
+                                                        </td>
+                                                        <td class="text-center p-0">
+                                                            <a href="" class="ic-close btn-close  [ d-inline-block align-middle ml-1 ]">
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="row [ mt-4 ]">
+                                    <div class="col-xl-12 [ text-right ]">
+                                        <button type="button" class="btn btn-primary">
+                                            Save                            
+                                        </button>
+                                    </div>
+                                </div>   
+
+                            </div> <!-- /.box-wrapper -->
+                        </div><!-- Main area Ends -->
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <!-- Main Wrapper Ends -->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="addClinicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-large" role="document">
+    <div class="modal-content">
+     <!--  <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+      <div class="modal-body">
+        
+        <div class="box">
+          <div class="row">
+            <h5 class="box__heading col-xl-12">Clinic Details</h5>
+            <div class="form-group col-sm-6 col-lg-6 col-xl-4">
+              <div class="input-section">
+                <input type="text" name="clinicName" class="form-control" id="clinic-name" placeholder="Enter clinic name" value="" required>
+                <label for="clinic-name">Clinic Name*</label>
+
+                <!-- <div class="form-error">
+                   <span>Company name is required.</span>
+                </div>  -->
+              </div>                      
+            </div>
+            <div class="form-group col-sm-6 col-lg-6 col-xl-4">
+              <div class="input-section">
+                <input type="text" name="clinicEmail" class="form-control" id="clinic-email" placeholder="Enter clinic email" required>
+                <label for="clinic-email">Clinic Email*</label>
+
+                <!-- <div class="form-error">
+                   <span>Company email is required.</span>
+                </div>  -->
+              </div>                       
+            </div>
+            <div class="form-group col-sm-6 col-lg-6 col-xl-4">
+              <div class="input-section">
+                <input type="text" name="companyPhone" class="form-control" id="clinic-phone"  placeholder="Enter clinic phone" value="">
+                <label for="clinic-phone">Clinic Phone*</label>
+                <!-- <div class="form-error">
+                   <span>Company phone is required.</span>
+                </div>  -->
+              </div>                      
+            </div>
+          </div>    
+          <div class="row">
+            <div class="form-group col">
+              <div class="input-section">
+                <textarea id="about-clinic" class="form-control " placeholder="Enter about clinic"></textarea>
+                <label for="about-clinic">About Clinic</label> 
+              </div>    
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <script type="text/javascript">
+            $('document').ready(function () {
+                var distance = $('.page-heading').offset().top,
+                        $window = $(window);
+
+                $window.scroll(function () {
+
+                    if ($window.scrollTop() >= distance) {
+
+                        $('body').attr("data-is-fixed", "true");
+
+                    } else {
+
+                        $('body').attr("data-is-fixed", "false");
+
+                    }
+
+                    $('.acuro-sidebar').css('top', 114 - $(this).scrollTop());
+
+                });
+
+
+                $('#js-notification-trigger').on("click", function () {
+                    $('.user-notification-sidebar').toggleClass('active');
+                });
+
+            });
+
+            // $('.dropdown-toggle.dropdown());
+        </script>
+
+    </body>
+   
+</html>
