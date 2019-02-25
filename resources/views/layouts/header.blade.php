@@ -23,5 +23,9 @@
     <link href="{{asset('css/admin.css')}}" rel="stylesheet">
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
     <script src="{{asset('js/bootstrap-timepicker.js')}}"></script>
+    <link href=" {{ asset('css\pnotify.custom.min.css') }}" rel="stylesheet">
+    <script src="{{ asset('js\pnotify.custom.min.js') }}"></script>
 </head>

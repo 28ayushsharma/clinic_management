@@ -144,7 +144,7 @@
                             password    : $('#password').val()
                         };
                         $.ajax({
-                            url     :   '{{route('signup-save')}}',
+                            url     :   '{{route("signup-save")}}',
                             type    :   'POST',
                             data    :   {formData},
                             success :   function(result){
@@ -158,8 +158,8 @@
                                     });
                                 }else{
                                     $('#sign_in_form')[0].reset();
-                                    alert("Signup Successfull.");
-                                   
+                                    alert("Signup Successfull. You can now login.");
+                                    window.location.href = '{{ route("/")}}'; 
                                 } 
                             }
                         });

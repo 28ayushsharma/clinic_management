@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClinicTable extends Migration
+class CreateUserExperienceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateClinicTable extends Migration
      */
     public function up()
     {
-        Schema::create('clinics', function (Blueprint $table) {
+        Schema::create('user_experiences', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id');
+            $table->string('role');
+            $table->year('from_year');
+            $table->year('to_year');
             $table->string('clinic_name');
-            $table->string('clinic_email')->unique();
-            $table->string('clinic_phone');
-            $table->text('clinic_about');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -32,6 +31,6 @@ class CreateClinicTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clinic');
+        Schema::dropIfExists('user_experiences');
     }
 }

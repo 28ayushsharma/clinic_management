@@ -57,7 +57,8 @@
                         <div class="box">
                             <div class="d-flex justify-content-center mb-5">
                                 <div class="user-profile-dp">
-                                    <img src="{{asset('profile_images/'.$userData->photo)}}" id="profile_img" alt="">
+                                    <img src="@if($userData->photo != ""){{asset('profile_images/'.$userData->photo)}}@else{{asset('images/ic_placeholder.png')}}@endif"
+                                    id="profile_img" alt="">
                                     <span role="button" class="user-profile-dp__edit">
                                         <img src="{{asset('images/ic_edit.png')}}" alt="">
                                         <form id="user_profile_dp">
@@ -74,9 +75,9 @@
                                     <div class="input-section">
                                         <input type="text" class="form-control" id="first_name" name="first_name"
                                             placeholder="First name" value={{$userData->first_name}}>
-                                        <!--  <div class="form-error">
-                                            <span>First name is required.</span>
-                                        </div>  -->
+                                        <div class="form-error first_name_error">
+                                            
+                                        </div>
                                         <label>First Name*</label>
                                     </div>
                                 </div>
@@ -86,9 +87,9 @@
                                     <div class="input-section">
                                         <input type="text" class="form-control" id="last_name" placeholder="Last name"
                                             name="last_name" value={{$userData->last_name}}>
-                                        <!-- <div class="form-error" >
-                                            <span ng-message="required">Last name is required.</span>
-                                        </div> -->
+                                        <div class="form-error last_name_error" >
+                                            
+                                        </div>
                                         <label>Last Name*</label>
                                     </div>
                                 </div>
@@ -97,10 +98,7 @@
                                 <div class="form-group col">
                                     <div class="input-section">
                                         <input type="text" class="form-control" id="email" placeholder="Enter email"
-                                            name="email" value={{$userData->email}}>
-                                        <!-- <div class="form-error" >
-                                            <span ng-message="required">Email is required.</span>
-                                        </div> -->
+                                            name="email" value={{$userData->email}} disabled>
                                         <label for="email">Email*</label>
                                     </div>
                                 </div>
@@ -110,9 +108,9 @@
                                     <div class="input-section">
                                         <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter your phone"
                                             name="phone" value={{$userData->phone}}>
-                                        <!-- <div class="form-error" >
-                                            <span ng-message="required">Phone is required.</span>
-                                        </div> -->
+                                        <div class="form-error phone_error" >
+                                            
+                                        </div>
                                         <label for="phone">Phone*</label>
                                     </div>
                                 </div>
@@ -272,53 +270,65 @@
                                     <h5 class="box__heading col-xl-12">About User</h5>
                                     <div class="col-sm-12">
                                         <div class="input-section">
-                                            <textarea class="form-control" id="about" placeholder="Enter text here"
-                                                name="about"></textarea>
+                                            <textarea class="form-control" id="about_user" placeholder="Enter text here"
+                                                name="about_user">{{ $userData->about_user }}</textarea>
+                                            <div class="form-error about_user_error" >
+                                                
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="box p-0">
-                                <div class="box mb-0 box-bottom--shadow">
-                                    <div class="row">
-                                        <h5 class="box__heading col-xl-12">User Experience</h5>
-                                        <div class="form-group col-sm-4">
-                                            <div class="input-section">
-                                                <select class="custom-select w-100" id="role" name="role">
-                                                    <option selected>Select</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                                <label for="role">Role</label>
+                                <div class="box mb-0 box-bottom--shadow"> 
+                                    <form id="user_experience_form">
+                                        <div class="row">
+                                            <h5 class="box__heading col-xl-12">User Experience</h5>
+                                            <div class="form-group col-sm-4">
+                                                <div class="input-section">
+                                                    <select name="role" class="form-control custom-select w-100" id="role" name="role">
+                                                        <option selected value="">Select</option>
+                                                        <option value="Doctor">Doctor</option>
+                                                        <option value="Nurse">Nurse</option>
+                                                        <option value="Patient">Patient</option>
+                                                    </select>
+                                                    <label for="role">Role</label>
+                                                    <div class="form-error role_error">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group w-100p col-auto divider-date">
+                                                <div class="input-section">
+                                                    <input type="text" id="role_from_year" name="from_year" placeholder="yyyy" class="form-control roleFromYear icon-field ic-calendar date-own" />
+                                                    <label for="role_from_year">From</label>
+                                                    <div class="form-error from_year_error">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group w-100p col-auto">
+                                                <div class="input-section">
+                                                    <input type="text" id="role_to_year" name="to_year" placeholder="yyyy"
+                                                        class="form-control roleToYear icon-field ic-calendar date-own" />
+                                                    <label for="role_to_year">To</label>
+                                                    <div class="form-error to_year_error">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col">
+                                                <div class="input-section">
+                                                    <input type="text" id="clinic-hospital-companyname" name="company"
+                                                        placeholder="Type to add" class="form-control">
+                                                    <label for="clinic-hospital-companyname">Clinic/Hospital/Company name</label>
+                                                    <div class="form-error company_error">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-auto">
+                                                <button class="btn btn-add save_user_experience"></button>
                                             </div>
                                         </div>
-                                        <div class="form-group w-100p col-auto divider-date">
-                                            <div class="input-section">
-                                                <input type="text" id="role_from_year" name="from_year" placeholder="yyyy"
-                                                    datepicker-mode="year" datetime-picker="yyyy" class="form-control roleFromYear icon-field ic-calendar" />
-                                                <label for="role_from_year">From</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group w-100p col-auto">
-                                            <div class="input-section">
-                                                <input type="text" id="role_to_year" name="to_year" placeholder="yyyy"
-                                                    class="form-control roleToYear icon-field ic-calendar" />
-                                                <label for="role_to_year">To</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col">
-                                            <div class="input-section">
-                                                <input type="text" id="clinic-hospital-companyname" name="company"
-                                                    placeholder="Type to add" class="form-control">
-                                                <label for="clinic-hospital-companyname">Clinic/Hospital/Company name</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-auto">
-                                            <button class="btn btn-add"></button>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
 
                                 <div class="table-container radius-none bg-transparent">
@@ -343,37 +353,26 @@
                                                     </th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        Doctor
-                                                    </td>
-                                                    <td>
-                                                        2000-2002
-                                                    </td>
-                                                    <td>
-                                                        Abc Hospital
-                                                    </td>
-                                                    <td class="text-center p-0">
-                                                        <a href="" class="ic-close btn-close  [ d-inline-block align-middle ml-1 ]">
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        Doctor
-                                                    </td>
-                                                    <td>
-                                                        2000-2002
-                                                    </td>
-                                                    <td>
-                                                        Abc Hospital
-                                                    </td>
-                                                    <td class="text-center p-0">
-                                                        <a href="" class="ic-close btn-close  [ d-inline-block align-middle ml-1 ]">
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                            <tbody id="user_experience">
+                                            @if(count($userExpData) > 0)
+                                                @foreach ($userExpData as $expData)
+                                                    <tr>
+                                                        <td>
+                                                            {{ $expData->role }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $expData->from_year }}-{{$expData->to_year}}
+                                                        </td>
+                                                        <td>
+                                                            {{$expData->clinic_name}}
+                                                        </td>
+                                                        <td class="text-center p-0">
+                                                            <a href="javascript:void(0)" data-id="{{ $expData->id }}" class="ic-close btn-close  [ d-inline-block align-middle ml-1 ] delete_experience">
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            @endif
                                             </tbody>
                                         </table>
                                     </div>
@@ -382,7 +381,7 @@
 
                             <div class="row [ mt-4 ]">
                                 <div class="col-xl-12 [ text-right ]">
-                                    <button type="button" class="btn btn-primary">
+                                    <button type="button" class="btn btn-primary save_user_data">
                                         Save
                                     </button>
                                 </div>
@@ -400,12 +399,6 @@
         aria-hidden="true">
         <div class="modal-dialog modal-large" role="document">
             <div class="modal-content">
-                <!--  <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div> -->
                 <form id="add_clinic_form">
                 <div class="modal-body">
                     <div class="box">
@@ -468,11 +461,23 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.min.js"></script>
     <script type="text/javascript">
+        function notice(title,text,type){
+            new PNotify({
+                title:  title,
+                text :  text,
+                type :  type,
+            });
+        };
         $('document').ready(function () {
             $('.timepicker').timepicker({
                 template: false,
                 showInputs: false,
                 minuteStep: 5
+            });
+            $('.date-own').datepicker({
+                minViewMode: 2,
+                format: 'yyyy',
+                endDate: new Date()
             });
 
 
@@ -498,7 +503,7 @@
                 $('.user-notification-sidebar').toggleClass('active');
             });
 
-    /**-- Custom script starts frm here*/
+        /**-- Custom script starts from here*/
 
             $.ajaxSetup({
                 headers: {
@@ -549,7 +554,7 @@
                                 }else{
                                     $('#add_clinic_form')[0].reset();
                                     $('#addClinicModal').modal('hide');
-                                    alert("Clinic saved Successfully.");
+                                    notice('Notice..!!','Clinic saved Successfully.', 'success');
                                     renderClinicData();
                                 } 
                             }
@@ -559,9 +564,7 @@
 
             $(document).on('click','.book_slot',function(){
                 var form_id = $(this).closest("form").attr("id");
-                
                 var postfix_id = form_id.slice(-1);
-                
                 $('#'+form_id).validate({ // initialize the plugin
                     rules: {
                         day: {
@@ -584,41 +587,43 @@
                         $("."+element.attr("name")+"_error_"+postfix_id).html(error);                        
                     },
                     submitHandler: function (form) {
-                        var days = [];
-                        $.each($("input[name="+'day_'+postfix_id+"]:checked"), function(){            
-                            days.push($(this).val());
-                        });
-                       var formData = {
-                            start_time  : $('.start_time_'+postfix_id).val(),
-                            end_time    : $('.end_time_'+postfix_id).val(),
-                            day        : days,
-                            clinic_id   : $('#clinic_id_'+postfix_id).val()
-                        };
+                        var res = confirm("Are you sure you want to book the slot?");
+                        if(res){
+                            var days = [];
+                            $.each($("input[name="+'day_'+postfix_id+"]:checked"), function(){            
+                                days.push($(this).val());
+                            });
+                            var formData = {
+                                start_time  : $('.start_time_'+postfix_id).val(),
+                                end_time    : $('.end_time_'+postfix_id).val(),
+                                day        : days,
+                                clinic_id   : $('#clinic_id_'+postfix_id).val()
+                            };
 
-                        $.ajax({
-                            url     :   '{{route("book-slot")}}',
-                            type    :   'POST',
-                            data    :   {formData},
-                            success :   function(result){
-                                $(".form-error").empty();
-                                if(!result.status){
-                                    $.each(result.errors, function( index, value ) {
-                                        $.each(value, function( nouse, value ) {
-                                            console.log("."+index+"_error_"+postfix_id);
-                                            $("."+index+"_error_"+postfix_id).append("<span>"+value+"</span>");
+                            $.ajax({
+                                url     :   '{{route("book-slot")}}',
+                                type    :   'POST',
+                                data    :   {formData},
+                                success :   function(result){
+                                    $(".form-error").empty();
+                                    if(!result.status){
+                                        $.each(result.errors, function( index, value ) {
+                                            $.each(value, function( nouse, value ) {
+                                                console.log("."+index+"_error_"+postfix_id);
+                                                $("."+index+"_error_"+postfix_id).append("<span>"+value+"</span>");
+                                            });
                                         });
-                                    });
-                                }else{
-                                    renderClinicData();
-                                    alert("Slot booked successfully.");
-                                   
-                                }  
-                            }
-                        });
-                        
+                                    }else{
+                                        renderClinicData();
+                                        notice('Notice..!!','Slot booked successfully.', 'success');   
+                                    }  
+                                }
+                            });
+                        }
                         
                     }//submit handler END
                 });
+
             });
 
             $(document).on('click','.delete_slot', function(){
@@ -646,7 +651,7 @@
                 var formData = new FormData(this);
                 $.ajax({
                     type:'POST',
-                    url: '{{route('upload_pic')}}',
+                    url: '{{route("upload_pic")}}',
                     data:formData,
                     cache:false,
                     contentType: false,
@@ -667,7 +672,99 @@
                 $("#user_profile_dp").submit();
             });
 
+
+            $(document).on('click','#save_user_experience', function(){
+                $("#user_experience_form").submit();
+            })
+
+            $('#user_experience_form').on('submit',(function(e) {
+                e.preventDefault();
+                var formData = new FormData(this);
+                var res = confirm("Are you sure you want to save the user experience?");
+                if(res){
+                    $.ajax({
+                        type:'POST',
+                        url: '{{route("save_user_experience")}}',
+                        data:formData,
+                        cache:false,
+                        contentType: false,
+                        processData: false,
+                        success:function(result){
+                            if(result.status){
+                                 $('#user_experience_form')[0].reset();
+                                notice('Notice..!!',result.msg, 'success');
+                                renderUserExperience();
+                            }else{
+                                $(".form-error").empty();
+                                $.each(result.errors, function( index, value ) {
+                                    $("."+index+"_error").empty();
+                                    $.each(value, function( nouse, value ) {
+                                        $("."+index+"_error").append("<span>"+value+"</span>");
+                                    });
+                                });
+                            }
+                            
+                        }
+                    });
+                }
+            }));
+
+            $(document).on("click",".delete_experience",function(){
+                var res = confirm("Are you sure you want to delete this user Experience.");
+                if(res){
+                    var experience_id = $(this).attr('data-id');
+                    $.ajax({
+                        type:'POST',
+                        url: '{{route("delete_user_experience")}}',
+                        data:{experience_id:experience_id},
+                        success:function(result){
+                            if(result.status){
+                                notice('Notice..!!',result.msg, 'success');
+                                renderUserExperience();
+                            }else{
+                                
+                            }
+                            
+                        }
+                    });
+                }
+            });
+
+            $(".save_user_data").on("click",function(){
+                var res = confirm("Are you sure you want save user data.");
+                if(res){
+                    var formData = {
+                        first_name    : $('#first_name').val(),
+                        last_name     : $('#last_name').val(),
+                        phone         : $('#phone').val(),
+                        about_user    : $('#about_user').val(),
+                    };
+                    $.ajax({
+                        type:'POST',
+                        url: '{{route("save_user_data")}}',
+                        data: formData,
+                        success:function(result){
+                            if(result.status){
+                                notice('Notice..!!',result.msg, 'success');
+                            }else{
+                              console.log(result);
+                                $(".form-error").empty();
+                                $.each(result.errors, function( index, value ) {
+                                    $("."+index+"_error").empty();
+                                    $.each(value, function( nouse, value ) {
+                                        $("."+index+"_error").append("<span>"+value+"</span>");
+                                    });
+                                });
+                            }
+                            
+                        }
+                    });
+                }
+            })
+
     });//document ready end
+
+
 
     /**
     * function to render html of clinic details
@@ -675,10 +772,23 @@
     */
     function renderClinicData() {
         $.ajax({
-            url     :   '{{route('render_clinic')}}',
+            url     :   '{{route("render_clinic")}}',
             type    :   'GET',
             success :   function(result){
                 $('#accordion-parent').html(result);
+            }
+        });
+    }
+
+    /**
+    *to render user experience html
+    */
+    function renderUserExperience(){
+        $.ajax({
+            url     :   '{{route("render_user_experience")}}',
+            type    :   'GET',
+            success :   function(result){
+                $('#user_experience').html(result);
             }
         });
     }

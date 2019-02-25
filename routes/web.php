@@ -28,11 +28,15 @@ Route::middleware(['admin'])->group(function (){
     Route::get('dashboard', 'UserController@index')->name('dashboard');
     Route::get('logout', 'UserController@logout')->name('logout');
     Route::post('user/upload-pic', 'UserController@uploadPic')->name('upload_pic');
+    Route::post('user/save-user-data', 'UserController@saveUserData')->name('save_user_data');
+    Route::post('user/user-experience', 'UserController@saveUserExperience')->name('save_user_experience');
+    Route::post('user/user-experience-delete', 'UserController@deleteUserExperience')->name('delete_user_experience');
+    Route::get('user/render-user-experience', 'UserController@renderUserExperience')->name('render_user_experience');
+
 
     Route::post('clinic/store', 'ClinicController@store')->name('clinic_store');
     Route::post('clinic/book-slot', 'ClinicController@bookSlot')->name('book-slot');
     Route::get('clinic/clinic-data', 'ClinicController@renderClinicData')->name('render_clinic');
-
     Route::post('clinic/delete-slot', 'ClinicController@deleteSlot')->name('delete_slot');
 
 });

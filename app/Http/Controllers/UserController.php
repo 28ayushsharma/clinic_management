@@ -9,6 +9,7 @@ use Auth,View,Hash;
 use App\User;
 use App\Clinic;
 use App\ClinicSlot;
+use App\UserExperience;
 
 class UserController extends Controller{
     /**
@@ -26,7 +27,8 @@ class UserController extends Controller{
      */
     public function index(){
         $userData = User::find(Auth::user()->id);
-        $clinicData = Clinic::with('clinicSlots')->get();
+        $clinicData = Clinic::where('user_id',Auth::user()->id)->with('clinicSlots')->get();
+        $userExpData = UserExperience::where('user_id',Auth::user()->id)->get();
         
         //restructuring data for ease of display
         $restructuredData = array();
@@ -39,12 +41,12 @@ class UserController extends Controller{
             $clinicData[$index]->clinicSlots = $restructuredData;
             $restructuredData = [];
         }
-        return view('index',compact('userData','clinicData'));
+        return view('index',compact('userData','clinicData','userExpData'));
     }
 
 
     /**
-    * Save User data
+    * signup user
     *@param null
     *
     * @return view page with success msg
@@ -56,7 +58,7 @@ class UserController extends Controller{
             'last_name'   => 'required|max:255',
             'phone'     => 'required|numeric',
             'email'     => 'required|email|unique:users,email,',
-            'password'  => 'required|min:6',
+            'password'  => 'required|min:6|max:255',
             ];
 
         $validator = Validator::make($input_data, $rules);
@@ -83,7 +85,9 @@ class UserController extends Controller{
         }
     }//save() END
 
-
+    /**
+     * user image upload
+     */
     public function uploadPic(Request $request){
         $rules = [
             'pro_pic' => 'image'
@@ -115,10 +119,110 @@ class UserController extends Controller{
         }
     }
 
+    /**
+     * save user experience
+     */
+    public function saveUserExperience(Request $request){
+        $rules = [
+            'role'      => 'required|max:255',
+            'from_year' => 'required|digits:4',
+            'to_year'   => 'required|digits:4|after:from_year',
+            'company'   => 'required|max:255'
+        ];
+
+        $messages = [
+            'from_year.required' => 'Required',
+            'to_year.required' => 'Required',
+            'to_year.digits' => 'Invalid',
+            'from_year.digits' => 'Invalid',
+            'to_year.after' => 'To year must be greater than from year.'
+        ];
+
+        $validator = Validator::make($request->all(),$rules ,$messages);
+
+        if ($validator->fails()){
+            return response()->json([
+                'status' => 0,
+                'errors' => $validator->errors()->toArray()
+            ]);
+        }else{
+            UserExperience::create([
+               "user_id" => Auth::user()->id,
+               "role"    => $request->get('role'),
+               "from_year" => $request->get('from_year'),
+               "to_year" => $request->get('to_year'),
+               "clinic_name" => $request->get('company')
+            ]);
+            return response()->json([
+                'status' => 1,
+                'msg'    => "User Experienced saved successfully."
+            ]);
+        }
+
+    }
+
+    public function renderUserExperience(){
+        $userExpData = UserExperience::where('user_id',Auth::user()->id)->get();
+        return view('partial.renderUserExperience',compact('userExpData'));
+    }
+
+    /**
+     * delete user experience
+     */
+    public function deleteUserExperience(Request $request){
+        $result = UserExperience::find($request->get("experience_id"))->delete();
+        if($result){
+            return response()->json([
+                'status' => 1,
+                'msg'    => "User experience deleted successfully."
+            ]);
+        }else{
+            return response()->json([
+                'status' => 0,
+                'msg'    => "Some error occured."
+            ]);
+        }
+
+    }
+
+    /**
+     * save user profile data
+     */
+    public function saveUserData(Request $request){
+
+        $rules = [
+            'first_name'  => 'required|max:255',
+            'last_name'   => 'required|max:255',
+            'phone'      => 'required|numeric',
+            'about_user' => 'required'
+            ];
+
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()){
+            return response()->json([
+                'status' => 0,
+                'errors' => $validator->errors()->toArray()
+            ]);
+        }else{
+            User::find(Auth::user()->id)->update([
+                "first_name"    => ucwords($request->get('first_name')),
+                "last_name"     => ucwords($request->get('last_name')),
+                "phone"         => $request->get('phone'),
+                "about_user"    => $request->get('about_user')
+            ]);
+            return response()->json([
+                'status' => 1,
+                'msg'    => "Data saved successfully"
+            ]);
+        
+        }
+
+    }
+
     public function login(Request $request){
         $validator = Validator::make($request->all(), [
             'email'     => 'required|email',
-            'password'  => 'required'
+            'password'  => 'required|max:255'
             ]);
 
         if ($validator->fails()){

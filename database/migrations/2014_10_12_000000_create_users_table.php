@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             //licence no can be varchar - ex. APST140
             $table->string('licence_no')->unique();
+            $table->mediumText('about_user');
             $table->rememberToken();
             $table->timestamps();
         });
